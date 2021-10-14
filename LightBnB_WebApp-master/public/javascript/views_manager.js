@@ -11,9 +11,6 @@ $(() => {
     $logInForm.detach();
     $signUpForm.detach();
     $updateReservationForm.detach();
-  
-    
-  
 
     let dataTag = "";
    
