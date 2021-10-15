@@ -98,6 +98,14 @@ const getReviewsByProperty = function(propertyId) {
   });
 }
 
+const submitReview = function(data) {
+  return $.ajax({
+    method: "POST",
+    url: `/api/reviews/${data.reservationId}`,
+    data,
+  });
+}
+
 
 
 
