@@ -102,7 +102,7 @@ module.exports = function(router, database) {
 
   router.post('/reviews/:reservationId', (req, res) => {
     const reservationId = req.params.reservationId;
-    database.addReview({...req.body})
+    database.addReview({...req.body, reservation_id: reservationId})
     .then(review => {
       res.send(review);
     })
