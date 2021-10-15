@@ -11,6 +11,10 @@ $(() => {
     $logInForm.detach();
     $signUpForm.detach();
     $updateReservationForm.detach();
+    $newReviewForm.detach();
+    $('#reservation-details').detach();
+    $newReservationForm.detach();
+    
 
     let dataTag = "";
 
@@ -69,9 +73,6 @@ $(() => {
         $("#datatag").empty();
         $(dataTag).appendTo("#datatag");
         break;
-
-
-
       case 'error': {
         const $error = $(`<p>${arguments[1]}</p>`);
         $error.appendTo('body');
