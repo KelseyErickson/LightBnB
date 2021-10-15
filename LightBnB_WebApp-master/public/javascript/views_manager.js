@@ -63,6 +63,13 @@ $(() => {
           .then(reviews => propertyReviews.addReviews(reviews))
         $propertyReviews.appendTo($main);
         break;
+      case 'newReview':
+        dataTag = `<h4>${data}</h4>`;
+        $newReviewForm.appendTo($main);
+        $("#datatag").empty();
+        $(dataTag).appendTo("#datatag");
+        break;
+
 
 
       case 'error': {
