@@ -40,11 +40,24 @@ $(() => {
         });
       })
       $('.delete-button').on('click', function() {
-        const idData = $(this).attr('id').substring(16);
-        deleteReservation(idData);  
-        window.location.reload();
+        const id = $(this).attr('id').substring(16);
+        console.log('deleting')
+        deleteReservation(id)
+        .then(() => {
+          propertyListings.clearListings();
+          getFulfilledReservations()
+            .then(function(json) {
+              propertyListings.addProperties(json.reservations, { upcoming: false });
+              getUpcomingReservations()
+              .then(json => {
+                propertyListings.addProperties(json.reservations, { upcoming: true })
+              })
+              views_manager.show('listings');
+            })
+            .catch(error => console.error(error));
+          views_manager.show('listings');
+        })
       })
-      
       $('.add-review-button').on('click', function() {
         const idData = $(this).attr('id').substring(11);
         views_manager.show("newReview", idData);
