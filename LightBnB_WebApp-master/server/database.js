@@ -169,7 +169,6 @@ exports.getAllProperties = getAllProperties;
  * @return {Promise<{}>} A promise to the property.
  */
 const addProperty = function(property) {
-  console.log(property.owner_id)
   const newPropertyProperties = [
     property.owner_id,
     property.title, 
@@ -262,7 +261,6 @@ const updateReservation = function(reservationData) {
   let queryString = `UPDATE reservations SET `;
   const queryParams = [];
   if (reservationData.start_date) {
-    console.log(reservationData.start_date)
     queryParams.push(reservationData.start_date);
     queryString += `start_date = $1`;
     if (reservationData.end_date) {
@@ -275,8 +273,6 @@ const updateReservation = function(reservationData) {
   }
   queryString += ` WHERE id = $${queryParams.length + 1} RETURNING *;`
   queryParams.push(reservationData.reservation_id);
-  console.log(queryString);
-  console.log(queryParams);
   return pool.query(queryString, queryParams)
     .then(res => res.rows[0])
     .catch(err => console.error(err));
