@@ -1,5 +1,5 @@
 $(() => {
-  getAllListings().then(function( json ) {
+  getAllListings().then(function(json) {
     propertyListings.addProperties(json.properties);
     views_manager.show('listings');
 
@@ -11,7 +11,7 @@ $(() => {
     $('.review_details').on('click', function() {
       const idData = $(this).attr('id').substring(15);
       views_manager.show('showReviews', idData);
-    })
+    });
     
   });
 });

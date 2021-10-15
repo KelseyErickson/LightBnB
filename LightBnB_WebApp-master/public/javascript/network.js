@@ -9,7 +9,7 @@ function logOut() {
   return $.ajax({
     method: "POST",
     url: "/users/logout",
-  })
+  });
 }
 
 function logIn(data) {
@@ -53,10 +53,10 @@ function getUpcomingReservations() {
 }
 
 function getIndividualReservation(reservationId) {
-  let url = `/api/reservations/${reservationId}`
+  let url = `/api/reservations/${reservationId}`;
   return $.ajax({
     url,
-  })
+  });
 }
 
 const submitProperty = function(data) {
@@ -65,7 +65,7 @@ const submitProperty = function(data) {
     url: "/api/properties",
     data,
   });
-}
+};
 
 const submitReservation = function(data) {
   return $.ajax({
@@ -73,29 +73,29 @@ const submitReservation = function(data) {
     url: "/api/reservations",
     data,
   });
-}
+};
 
 const updateReservation = function(data) {
   return $.ajax({
     method: "POST",
     url: `/api/reservations/${data.reservation_id}`,
     data,
-  })
-}
+  });
+};
 
 const deleteReservation = function(id) {
   return $.ajax({
     method: "DELETE",
-    url: `/api/reservations/${id}`, 
-  })
-}
+    url: `/api/reservations/${id}`,
+  });
+};
 
 const getReviewsByProperty = function(propertyId) {
   const url = `api/reviews/${propertyId}`;
   return $.ajax({
     url,
   });
-}
+};
 
 const submitReview = function(data) {
   return $.ajax({
@@ -103,7 +103,7 @@ const submitReview = function(data) {
     url: `/api/reviews/${data.reservationId}`,
     data,
   });
-}
+};
 
 
 
