@@ -44,7 +44,21 @@ $(() => {
         deleteReservation(idData);  
         window.location.reload();
       })
-    } 
+      
+      $('.add-review-button').on('click', function() {
+        const idData = $(this).attr('id').substring(11);
+        views_manager.show("newReview", idData);
+      })
+    } else {
+      $('.reserve-button').on('click', function() {
+        const idData = $(this).attr('id').substring(17);
+        views_manager.show('newReservation', idData);
+      })
+      $('.review_details').on('click', function() {
+        const idData = $(this).attr('id').substring(15);
+        views_manager.show('showReviews', idData);
+      })
+    }
   }
 
   
