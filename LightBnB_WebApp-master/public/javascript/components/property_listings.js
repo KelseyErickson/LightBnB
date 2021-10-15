@@ -33,7 +33,6 @@ $(() => {
     
     if (isReservation) {
       $('.update-button').on('click', function() {
-        console.log($(this).attr('id').substring(16))
         const idData = $(this).attr('id').substring(16);
         getIndividualReservation(idData).then(data => {
           views_manager.show("updateReservation", data);       
@@ -41,7 +40,6 @@ $(() => {
       })
       $('.delete-button').on('click', function() {
         const id = $(this).attr('id').substring(16);
-        console.log('deleting')
         deleteReservation(id)
         .then(() => {
           propertyListings.clearListings();
