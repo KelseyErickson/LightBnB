@@ -41,6 +41,4 @@ $(() => {
 
 window.propertyReviews.addReviews = addReviews;
 
-
-  window.propertyReviews.addReviews = addReviews;
 })
