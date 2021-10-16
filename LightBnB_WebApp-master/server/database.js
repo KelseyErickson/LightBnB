@@ -157,7 +157,11 @@ const getAllProperties = (options, limit = 10) => {
    LIMIT $${queryParams.length};
    `;
 
-  return pool.query(queryString, queryParams).then((res) => res.rows);
+  return pool.query(queryString, queryParams)
+    .then((res) => res.rows)
+    .catch((err) => {
+     console.log(err.message);
+    });
 };
 
 exports.getAllProperties = getAllProperties;
@@ -218,7 +222,10 @@ const addReservation = function(reservation) {
     INSERT INTO reservations (start_date, end_date, property_id, guest_id)
     VALUES ($1, $2, $3, $4) RETURNING *;
   `, [reservation.start_date, reservation.end_date, reservation.property_id, reservation.guest_id])
-    .then(res => res.rows[0]);
+      .then(res => res.rows[0])
+      .catch((err) => {
+        console.log(err.message);
+      });
 };
 
 exports.addReservation = addReservation;
@@ -239,7 +246,10 @@ const getUpcomingReservations = function(guest_id, limit = 10) {
   LIMIT $2;`;
   const params = [guest_id, limit];
   return pool.query(queryString, params)
-    .then(res => res.rows);
+    .then(res => res.rows)
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 exports.getUpcomingReservations = getUpcomingReservations;
 
@@ -274,7 +284,6 @@ const updateReservation = function(reservationData) {
     .then(res => res.rows[0])
     .catch(err => console.error(err));
 };
-
 exports.updateReservation = updateReservation;
 
 //
@@ -289,7 +298,6 @@ const deleteReservation = function(reservationId) {
       console.log(err.message, err);
     });
 };
-
 exports.deleteReservation = deleteReservation;
 
 /*
@@ -307,7 +315,11 @@ const getReviewsByProperty = function(propertyId) {
     ORDER BY reservations.start_date ASC;
   `;
   const queryParams = [propertyId];
-  return pool.query(queryString, queryParams).then(res => res.rows);
+  return pool.query(queryString, queryParams)
+    .then(res => res.rows)
+    .catch((err) => {
+     console.log(err.message);
+    });
 };
 exports.getReviewsByProperty = getReviewsByProperty;
 
@@ -318,7 +330,11 @@ const addReview = function(review) {
     RETURNING *;
   `;
   const queryParams = [review.guest_id, review.property_id, review.id, parseInt(review.rating), review.message];
-  return pool.query(queryString, queryParams).then(res => res.rows);
+  return pool.query(queryString, queryParams)
+    .then(res => res.rows)
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 exports.addReview = addReview;
 
