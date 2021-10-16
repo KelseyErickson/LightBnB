@@ -1,5 +1,4 @@
 $(() => {
-
   const $updateReservationForm = $(`
     <form action="/api/reservations" method="post" id="update-reservation-form" class="update-reservation-form">
       <h3 id="update-reservation-header">Start Date</h3>
@@ -210,6 +209,7 @@ $(() => {
       }
     }
 
+    // if condtions are met update the reservation
     if ((startDate || endDate) && !errorMessage) {
       const reservationId = $(this).find("#datatag-reservation-id").text();
       const dataObj = { start_date: startDate, end_date: endDate, reservation_id: reservationId };
