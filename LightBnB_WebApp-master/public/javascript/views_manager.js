@@ -60,6 +60,7 @@ $(() => {
       const errorMessage = data.error_message ? `<h4>${data.error_message}</h4>` : ``;
       $(reservationDetails).appendTo($main);
       $updateReservationForm.appendTo($main);
+      $("#datatag").empty();
       $(dataTag).appendTo("#datatag");
       $(errorMessage).appendTo('#error-message');
       break;
