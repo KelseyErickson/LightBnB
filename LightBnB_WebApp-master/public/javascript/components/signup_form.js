@@ -38,6 +38,5 @@ $(() => {
   $('body').on('click', '#sign-up-form__cancel', function() {
     views_manager.show('listings');
     return false;
-  });
-      
+  });    
 });

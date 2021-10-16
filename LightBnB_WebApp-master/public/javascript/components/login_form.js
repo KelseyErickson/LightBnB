@@ -1,5 +1,4 @@
 $(() => {
-
   const $logInForm = $(`
   <form id="login-form" class="login-form">
       <p>Login</p>
@@ -40,6 +39,5 @@ $(() => {
   $('body').on('click', '#login-form__cancel', function() {
     views_manager.show('listings');
     return false;
-  });
-      
+  });    
 });
