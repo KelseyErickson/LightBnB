@@ -13,6 +13,5 @@ $(() => {
       const idData = $(this).attr('id').substring(15);
       views_manager.show('showReviews', idData);
     });
-    
   });
 });

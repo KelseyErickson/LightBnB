@@ -104,8 +104,3 @@ const submitReview = function(data) {
     data,
   });
 };
-
-
-
-
-
