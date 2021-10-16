@@ -76,16 +76,22 @@ module.exports = function(router, database) {
   router.post('/reservations/:reservationId', (req, res) => {
     const reservationId = req.params.reservationId;
     database.updateReservation({ ...req.body, reservation_id: reservationId })
-      .then(reservation => {
-        res.send(reservation);
-      });
+    .then(reservation => res.send(reservation))
+    .catch(e => {
+      console.error(e);
+      res.send(e);
+    });
   });
 
   router.delete('/reservations/:reservationId', (req, res) => {
     const reservationId = req.params.reservationId;
     database.deleteReservation(reservationId)
       .then((result) => {
-        res.send(result);
+        res.send(result)
+      })
+      .catch(e => {
+        console.error(e);
+        res.send(e);
       });
   });
 
@@ -94,6 +100,10 @@ module.exports = function(router, database) {
     database.getReviewsByProperty(propertyId)
       .then(reviews => {
         res.send(reviews);
+      })
+      .catch(e => {
+        console.error(e);
+        res.send(e);
       });
   });
 
@@ -102,6 +112,10 @@ module.exports = function(router, database) {
     database.addReview({ ...req.body, reservation_id: reservationId })
       .then(review => {
         res.send(review);
+      })
+      .catch(e => {
+        console.error(e);
+        res.send(e);
       });
   });
   return router;
