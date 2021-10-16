@@ -14,6 +14,7 @@ $(() => {
     $newReviewForm.detach();
     $('#reservation-details').detach();
     $newReservationForm.detach();
+    $propertyReviews.detach();
 
 
     let dataTag = "";
