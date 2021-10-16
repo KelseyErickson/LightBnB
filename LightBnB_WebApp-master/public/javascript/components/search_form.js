@@ -1,5 +1,4 @@
 $(() => {
-
   const $searchPropertyForm = $(`
   <form action="/properties" method="get" id="search-property-form" class="search-property-form">
       <div class="search-property-form__field-wrapper">
