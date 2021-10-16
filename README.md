@@ -8,9 +8,9 @@ Create your own reservations, update them, and review them!
 
 ## Final Product
 
-!["Screenshot of home"](https://raw.githubusercontent.com/KelseyErickson/tinyapp/master/docs/tinyApp-urlsPage.png)
+!["Screenshot of home"](https://raw.githubusercontent.com/KelseyErickson/LightBnB/master/docs/lightbnbhome.png)
 !["Screenshot of Home Page"](https://raw.githubusercontent.com/KelseyErickson/tinyapp/master/docs/tinyApp-register.png)
-!["Screenshot of Reservations Page"](https://raw.githubusercontent.com/KelseyErickson/tinyapp/master/docs/tinyApp-edit.png)
+!["Screenshot of Reservations Page"](https://raw.githubusercontent.com/KelseyErickson/LightBnB/master/docs/lightbnbratingspage.png)
 
 ## Dependencies
 
