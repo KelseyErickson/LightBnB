@@ -1,6 +1,6 @@
 # LightBnB Project
 
-LightBnB is a full-stack web application using express, jquery, node and a relational database. 
+LightBnB is a full-stack web application using express, jquery, node, relational databases and more!
 
 Create your own reservations, update them, and review them!
 
