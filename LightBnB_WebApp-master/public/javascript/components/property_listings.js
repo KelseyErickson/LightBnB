@@ -1,5 +1,4 @@
 $(() => {
-
   const $propertyListings = $(`
   <section class="property-listings" id="property-listings">
       <p>Loading...</p>
@@ -42,6 +41,7 @@ $(() => {
         const id = $(this).attr('id').substring(16);
         deleteReservation(id)
           .then(() => {
+            // clear out property listings and reload the fufilled and upcomming reservations on the My Reservations page
             propertyListings.clearListings();
             getFulfilledReservations()
               .then(function(json) {
