@@ -1,5 +1,4 @@
 $(() => {
-
   const $signUpForm = $(`
   <form id="sign-up-form" class="sign-up-form">
         <p>Sign Up</p>
