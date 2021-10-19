@@ -136,8 +136,14 @@ const getAllProperties = (options, limit = 10) => {
   }
 
   if (options.minimum_price_per_night && options.maximum_price_per_night) {
-    queryParams.push(options.minimum_price_per_night, options.maximum_price_per_night);
+    queryParams.push(options.minimum_price_per_night*100, options.maximum_price_per_night*100);
     queryString += `${clause} cost_per_night <= $${queryParams.length} AND cost_per_night >=$${queryParams.length - 1}`;
+  } else if (options.minimum_price_per_night) {
+    queryParams.push(options.minimum_price_per_night*100);
+    queryString += `${clause} cost_per_night >= $${queryParams.length}`
+  } else if (options.maximum_price_per_night) {
+    queryParams.push(options.maximum_price_per_night*100);
+    queryString += `${clause} cost_per_night <= $${queryParams.length}`
   }
 
   if (options.minimum_rating) {
@@ -156,7 +162,7 @@ const getAllProperties = (options, limit = 10) => {
   queryString += `
    LIMIT $${queryParams.length};
    `;
-
+  
   return pool.query(queryString, queryParams)
     .then((res) => res.rows)
     .catch((err) => {
